@@ -1,0 +1,24 @@
+name: ramu-actions
+
+on: push
+
+jobs:
+  test-different-actions:
+    name: test-different-actions
+    runs-on: ubuntu-latest
+    steps:
+      - name: list files
+        run: ls
+      - name: check out repo
+        uses: actions/checkout@main
+      - name: list files after checkout
+        run: ls
+      - name: hello world action
+        id: hello-workd-action
+        uses: actions/hello-world-javascript-action@main
+        with:
+          who-to-greet: 'Ramu Chirumamilla'
+      - name: time
+        run: echo "'Greeting time:' ${{steps.hello-workd-action.outputs.time }}"
+      - name: docker action
+        run: docker://hello-world:latest
