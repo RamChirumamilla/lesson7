@@ -21,4 +21,4 @@ jobs:
       - name: time
         run: echo "'Greeting time:' ${{steps.hello-workd-action.outputs.time }}"
       - name: docker action
-        run: docker://hello-world:latest
+        uses: docker://hello-world:latest
